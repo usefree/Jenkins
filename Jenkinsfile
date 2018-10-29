@@ -9,8 +9,8 @@ pipeline {
 			BUILD_HOME='/var/lib/jenkins/workspace'
 		}
 		agent any
+		options { timestamps() }
 		stages {
-			timestamps{
 			stage('Checkout: Code') {
 				steps {
 					sh "mkdir -p $WORKSPACE/repo;\
@@ -24,7 +24,6 @@ pipeline {
 					println "some script execution here"
 					//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 				}
-			}
 			}
 		}
 		post {
