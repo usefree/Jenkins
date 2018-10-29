@@ -22,6 +22,7 @@ pipeline {
 			stage('find: ip') {
 				steps {
 					println "some script execution here"
+					currentBuild.displayName = env.BUILD_NUM    //Set Build name
 					//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 				}
 			}
