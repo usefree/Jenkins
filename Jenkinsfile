@@ -20,8 +20,7 @@ pipeline {
 		}
 		stage('find: ip') {
 			steps {
-				sh "sudo chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
-				sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
+				sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 			}
 		}
 	}
