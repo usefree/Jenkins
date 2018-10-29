@@ -14,8 +14,7 @@ pipeline {
 			steps {
 				sh "mkdir -p $WORKSPACE/repo;\
 				git config --global push.default simple;\
-				git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPTS"
-				sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
+				git clone $BUILD_SCRIPTS_GIT $WORKSPACE/repo/$BUILD_SCRIPTS"
 			}
 		}
 		stage('find: ip') {
