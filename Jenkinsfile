@@ -3,7 +3,6 @@
 Test Declarative pipeline
 */
 pipeline {
-	timestamps{
 		environment {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 			BUILD_SCRIPTS='mypipeline'
@@ -11,6 +10,7 @@ pipeline {
 		}
 		agent any
 		stages {
+			timestamps{
 			stage('Checkout: Code') {
 				steps {
 					sh "mkdir -p $WORKSPACE/repo;\
@@ -25,6 +25,7 @@ pipeline {
 					//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 				}
 			}
+			}
 		}
 		post {
 			always {
@@ -33,4 +34,3 @@ pipeline {
 			}
 		}
 	}
-}
