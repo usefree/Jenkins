@@ -2,8 +2,8 @@
 /*
 Test Declarative pipeline
 */
-timestamps{
-	pipeline {
+pipeline {
+	timestamps{
 		environment {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 			BUILD_SCRIPTS='mypipeline'
