@@ -20,7 +20,7 @@ pipeline {
 		}
 		stage('find: ip') {
 			steps {
-				sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
+				sh "$WORKSPACE/repo/$BUILD_SCRIPTS/bash/find_my_ip.sh"
 			}
 		}
 	}
