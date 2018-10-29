@@ -26,7 +26,8 @@ pipeline {
 	}
 	post {
 		always {
-			cleanWs()
+			println "clean here"
+			//cleanWs()
 		}
 	}
 }
