@@ -6,6 +6,7 @@ Test Declarative pipeline
 def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 def BUILD_SCRIPTS='mypipeline'
 def BUILD_HOME='/var/lib/jenkins/workspace'
+def tests = ['/test','/test3','/test4']
 
 timestamps{
 	node('master'){
@@ -23,18 +24,18 @@ timestamps{
 		}
 		stage('build: job') {
 			println "trying to build job test"
-			try {
-				build job: '/test'
-				build job: '/test33'
+			for (test in tests) {
+				try {
+					build job: test
+				}
+				catch(Exception ex){
+					println "exception below"
+					println ex.getMessage() //show Exception
+				}
+				finally{
+					println "finaly step"
+				}
 			}
-			catch(Exception ex){
-				println "exception below"
-				println ex.getMessage() //show Exception
-			}
-			finally{
-				println "finaly step"
-			}
-			build job: '/test34'
 		}
 	}
 }
