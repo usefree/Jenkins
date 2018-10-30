@@ -23,17 +23,17 @@ timestamps{
 		}
 		stage('build: job') {
 			println "trying to build job test"
-			//try {
+			try {
 				build job: '/test'
 				build job: '/test33'
-			//}
-			//catch(Exception ex){
-			//	println "exception below"
-			//	println ex.getMessage() //show Exception
-			//}
-			//finally{
-			//	println "finaly step"
-			//}
+			}
+			catch(Exception ex){
+				println "exception below"
+				println ex.getMessage() //show Exception
+			}
+			finally{
+				println "finaly step"
+			}
 			build job: '/test34'
 		}
 	}
