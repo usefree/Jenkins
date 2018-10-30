@@ -2,6 +2,7 @@
 /*
 Test Declarative pipeline
 */
+def ARRAY_OF_JOBS= ['/test3', '/test33']
 pipeline {
 		environment {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
@@ -28,7 +29,6 @@ pipeline {
 			}
 			stage('build: job') {
 				steps {
-					def ARRAY_OF_JOBS= ['/test3', '/test33']
 					println "trying to build job test"
 					for (t in ARRAY_OF_JOBS){
 						try {
