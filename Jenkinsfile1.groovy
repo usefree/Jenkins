@@ -24,7 +24,7 @@ timestamps{
 		stage('build: job') {
 			println "trying to build job test"
 			//try {
-				build job: '/test3'
+				build job: '/test'
 				build job: '/test33'
 			//}
 			//catch(Exception ex){
