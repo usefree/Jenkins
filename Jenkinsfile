@@ -7,6 +7,7 @@ pipeline {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 			BUILD_SCRIPTS='mypipeline'
 			BUILD_HOME='/var/lib/jenkins/workspace'
+			ARRAY_OF_JOBS= ['/test3', '/test33']
 		}
 		agent any
 		options { timestamps() }
@@ -29,11 +30,17 @@ pipeline {
 			stage('build: job') {
 				steps {
 					println "trying to build job test"
-					build job: '/test'
-						// parameters: [string(name: 'BUILD_NUM', value: params.BUILD_NUM), string(name: 'KEEP_ALIVE', value: '0')],
-						// propagate: false,
-						// wait: false,
-						// quietPeriod: 10
+					for (t in ARRAY_OF_JOBS){
+						try {
+							build job: t
+						}
+						catch(Exception ex){
+							println ex.getMessage() //show Exception
+						}
+						finally{
+							println "finaly step"
+						}
+					}
 				}
 			}
 		}
