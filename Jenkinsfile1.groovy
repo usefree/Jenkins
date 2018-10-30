@@ -3,6 +3,9 @@
 Test Declarative pipeline
 */
 //def ARRAY_OF_JOBS= ['/test3', '/test33']
+def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
+def BUILD_SCRIPTS='mypipeline'
+def BUILD_HOME='/var/lib/jenkins/workspace'
 
 timestamps{
 	node('master'){
