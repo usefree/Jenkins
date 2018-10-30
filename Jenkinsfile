@@ -26,6 +26,16 @@ pipeline {
 					//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 				}
 			}
+			stage('build: job') {
+				steps {
+					println "trying to build job test"
+					build job: test,
+						// parameters: [string(name: 'BUILD_NUM', value: params.BUILD_NUM), string(name: 'KEEP_ALIVE', value: '0')],
+						propagate: false,
+						wait: false,
+						quietPeriod: 10
+				}
+			}
 		}
 		post {
 			always {
