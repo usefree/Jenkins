@@ -6,7 +6,7 @@ Test Declarative pipeline
 def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 def BUILD_SCRIPTS='mypipeline'
 def BUILD_HOME='/var/lib/jenkins/workspace'
-def tests = ['/test','/test3','/test4']
+def tests = ['/test4','/test3','/test']
 
 timestamps{
 	node('master'){
