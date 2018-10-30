@@ -28,7 +28,7 @@ timestamps{
 				try {
 					build job: test
 				}
-				catch(Exception ex){
+				catch(hudson.AbortException ex){
 					println "exception below"
 					println ex.getMessage() //show Exception
 					println ex.getClass()
