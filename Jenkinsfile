@@ -7,7 +7,6 @@ pipeline {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 			BUILD_SCRIPTS='mypipeline'
 			BUILD_HOME='/var/lib/jenkins/workspace'
-			ARRAY_OF_JOBS= ['/test3', '/test33']
 		}
 		agent any
 		options { timestamps() }
@@ -28,6 +27,7 @@ pipeline {
 				}
 			}
 			stage('build: job') {
+			def ARRAY_OF_JOBS= ['/test3', '/test33']
 				steps {
 					println "trying to build job test"
 					for (t in ARRAY_OF_JOBS){
