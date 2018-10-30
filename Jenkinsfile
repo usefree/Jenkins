@@ -27,8 +27,8 @@ pipeline {
 				}
 			}
 			stage('build: job') {
-			def ARRAY_OF_JOBS= ['/test3', '/test33']
 				steps {
+					def ARRAY_OF_JOBS= ['/test3', '/test33']
 					println "trying to build job test"
 					for (t in ARRAY_OF_JOBS){
 						try {
