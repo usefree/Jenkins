@@ -2,7 +2,7 @@
 /*
 Test Declarative pipeline
 */
-def ARRAY_OF_JOBS= ['/test3', '/test33']
+//def ARRAY_OF_JOBS= ['/test3', '/test33']
 pipeline {
 		environment {
 			BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
@@ -31,7 +31,7 @@ pipeline {
 				steps {
 					println "trying to build job test"
 					try {
-						build job: '/test3', 
+						build job: '/test3'
 						build job: '/test33'
 					}
 					catch(Exception ex){
