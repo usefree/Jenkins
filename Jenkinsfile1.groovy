@@ -31,7 +31,7 @@ timestamps{
 				catch(Exception ex){
 					println "exception below"
 					println ex.getMessage() //show Exception
-					println ex.getStackTrace()
+					println ex.getClass()
 				}
 				finally{
 					println "finaly step"
