@@ -6,7 +6,7 @@ Test Declarative pipeline
 def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 def BUILD_SCRIPTS='mypipeline'
 def BUILD_HOME='/var/lib/jenkins/workspace'
-def tests = ['/test4','/test3','/test']
+def tests = ['/test','/test3','/test4']
 
 timestamps{
 	node('master'){
@@ -28,14 +28,14 @@ timestamps{
 				try {
 					build job: test
 				}
-				catch(hudson.AbortException ex){
+				catch(Exception ex){
 					println "exception below"
 					println ex.getMessage() //show Exception
 					println ex.getClass()
 				}
-				finally{
-					println "finaly step"
-				}
+				//finally{
+				//	println "finaly step"
+				//}
 			}
 		}
 	}
