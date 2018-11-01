@@ -7,6 +7,7 @@ def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
 def BUILD_SCRIPTS='mypipeline'
 def BUILD_HOME='/var/lib/jenkins/workspace'
 def tests = ['/test','/test3','/test4']
+def CustomWorkspace = "/home/usefree/workspace"
 
 timestamps{
 	node('master'){
@@ -24,7 +25,13 @@ timestamps{
 		}
 		stage('build: job') {
 			println "trying to build job test"
+			println "env.Workspace is ${env.WORKSPACE}"
 			println "workspace is: ${WORKSPACE}"
+			println "changing workspace to ${CustomWorkspace}"
+			env.WORKSPACE = CustomWorkspace
+			println "env.workspace is: ${env.WORKSPACE}"
+			WORKSPACE = env.WORKSPACE
+			println "Workspace is ${WORKSPACE}"
 			for (test in tests) {
 				try {
 					build job: test
