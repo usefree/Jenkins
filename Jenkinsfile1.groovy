@@ -26,11 +26,11 @@ timestamps{
 		stage('build: job') {
 			println "trying to build job test"
 			println "env.Workspace is ${env.WORKSPACE}"
-			println "workspace is: ${WORKSPACE}"
+			//println "workspace is: ${WORKSPACE}"
 			println "changing workspace to ${CustomWorkspace}"
 			env.WORKSPACE = CustomWorkspace
 			println "env.workspace is: ${env.WORKSPACE}"
-			WORKSPACE = env.WORKSPACE
+			//WORKSPACE = env.WORKSPACE
 			println "Workspace is ${WORKSPACE}"
 			for (test in tests) {
 				try {
