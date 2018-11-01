@@ -37,9 +37,10 @@ timestamps{
 					build job: test
 				}
 				catch(Exception ex){
-					println "exception below"
-					println ex.getMessage() //show Exception
-					println ex.getClass()
+					println "exception below",
+					println ex.getMessage(), //show Exception
+					println ex.getClass(),
+					println "finish"
 				}
 				//finally{
 				//	println "finaly step"
