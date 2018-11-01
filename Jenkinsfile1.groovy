@@ -24,6 +24,7 @@ timestamps{
 		}
 		stage('build: job') {
 			println "trying to build job test"
+			println ${WORKSPACE}
 			for (test in tests) {
 				try {
 					build job: test
