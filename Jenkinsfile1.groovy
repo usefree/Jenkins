@@ -32,6 +32,7 @@ timestamps{
 			println "env.workspace is: ${env.WORKSPACE}"
 			//WORKSPACE = env.WORKSPACE
 			println "Workspace is ${WORKSPACE}"
+			println "${BUILDS_TODAY}"
 			for (test in tests) {
 				try {
 					build job: test
