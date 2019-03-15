@@ -20,8 +20,7 @@ timestamps{
 		}
 		stage('build: restore') {
 			println "try build with cake"
-			chmod +x ./build.sh
-			./build.sh
+			sh "./build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 		}
