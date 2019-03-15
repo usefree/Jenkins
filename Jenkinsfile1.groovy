@@ -3,10 +3,10 @@
 Test Declarative pipeline
 */
 //def ARRAY_OF_JOBS= ['/test3', '/test33']
-def BUILD_SCRIPTS_GIT="https://github.com/usefree/bash.git"
+def BUILD_SCRIPTS_GIT="https://github.com/usefree/c-"
 def BUILD_SCRIPTS='mypipeline'
 def BUILD_HOME='/var/lib/jenkins/workspace'
-def tests = ['/test','/test3','/test4']
+def tests = ['/test','/test3']
 def CustomWorkspace = "/home/usefree/workspace"
 
 timestamps{
@@ -18,29 +18,32 @@ timestamps{
 			git clone $BUILD_SCRIPTS_GIT $WORKSPACE/repo/$BUILD_SCRIPTS"
 			sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
 		}
-		stage('find: ip') {
-			println "some script execution here"
+		stage('build: restore') {
+			println "try build with cake"
+			chmod +x ./build.sh
+			./build.sh
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 		}
-		stage('build: job') {
-			println "trying to build job test"
-			println "env.Workspace is ${env.WORKSPACE}"
+		stage('build: publish') {
+			println "just another step"
+			//println "trying to build job test"
+			//println "env.Workspace is ${env.WORKSPACE}"
 			//println "workspace is: ${WORKSPACE}"
-			println "changing workspace to ${CustomWorkspace}"
-			env.WORKSPACE = CustomWorkspace
-			println "env.workspace is: ${env.WORKSPACE}"
+			//println "changing workspace to ${CustomWorkspace}"
+			//env.WORKSPACE = CustomWorkspace
+			//println "env.workspace is: ${env.WORKSPACE}"
 			//WORKSPACE = env.WORKSPACE
-			println "Workspace is ${WORKSPACE}"
-			println "${BUILD_NUMBER}"
-			for (test in tests) {
-				try {
-					build job: test
-				}
-				catch(Exception ex){
-					println "exception below"
-					println ex.getMessage() //show Exception
-				}
+			//println "Workspace is ${WORKSPACE}"
+			//println "${BUILD_NUMBER}"
+			//for (test in tests) {
+			//	try {
+			//		build job: test
+			//	}
+			//	catch(Exception ex){
+			//		println "exception below"
+			//		println ex.getMessage() //show Exception
+			//	}
 				//finally{
 				//	println "finaly step"
 				//}
