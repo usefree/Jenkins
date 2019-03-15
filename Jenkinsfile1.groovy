@@ -19,10 +19,15 @@ timestamps{
 			sh "chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
 		}
 		stage('build: restore') {
-			println "try build with cake"
+			println "try build with dotnet core"
 			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS"
-			sh "ls"
-			sh "$WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
+			println "dotnet restore"
+			sh "dotnet restore"
+			println "dotnet publish"
+			sh "dotnet publish"
+			println "dotnet build"
+			sh "dotnet build"
+			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 		}
