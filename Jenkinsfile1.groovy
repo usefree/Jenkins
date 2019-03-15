@@ -22,7 +22,9 @@ timestamps{
 			println "try build with cake"
 			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS"
 			sh "`pwd`"
+			sh "echo ls -la"
 			sh "ls -la"
+			sh "echo build.sh"
 			sh "./build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
