@@ -20,7 +20,7 @@ timestamps{
 		}
 		stage('build: restore') {
 			println "try build with dotnet core"
-			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS/src/"
+			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp/"
 			println "dotnet restore"
 			sh "dotnet restore"
 			println "dotnet publish"
