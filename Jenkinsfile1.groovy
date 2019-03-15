@@ -16,16 +16,13 @@ timestamps{
 			sh "mkdir -p $WORKSPACE/repo;\
 			git config --global push.default simple;\
 			git clone $BUILD_SCRIPTS_GIT $WORKSPACE/repo/$BUILD_SCRIPTS"
-			sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
+			sh "chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
 		}
 		stage('build: restore') {
 			println "try build with cake"
 			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS"
-			sh "`pwd`"
-			sh "echo ls -la"
-			sh "ls -la"
-			sh "echo build.sh"
-			sh "./build.sh"
+			sh "ls"
+			sh "$WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
 		}
