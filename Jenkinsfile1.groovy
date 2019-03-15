@@ -21,12 +21,12 @@ timestamps{
 		stage('build: restore') {
 			println "try build with dotnet core"
 			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp/"
-			println "dotnet restore"
-			sh "dotnet restore"
-			println "dotnet publish"
-			sh "dotnet publish"
-			println "dotnet build"
-			sh "dotnet build"
+			println "dotnet restore $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
+			sh "dotnet restore $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
+			println "dotnet publish $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
+			sh "dotnet publish $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
+			println "dotnet build $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
+			sh "dotnet build $WORKSPACE/repo/$BUILD_SCRIPTS/src/firstapp.sln"
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
 			//sh "$WORKSPACE/repo/$BUILD_SCRIPTS/find_my_ip.sh"
