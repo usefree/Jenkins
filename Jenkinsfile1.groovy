@@ -20,6 +20,7 @@ timestamps{
 		}
 		stage('build: restore') {
 			println "try build with cake"
+			sh "`pwd`"
 			sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS"
 			sh "./build.sh"
 			//currentBuild.displayName = env.BUILD_NUM    
